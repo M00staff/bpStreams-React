@@ -4,6 +4,12 @@ import ReactDOM from 'react-dom';
 
 
 
-class Lifecycle extends React.Component {
-  
+class App extends React.Component {
+  render() {
+    return (
+      <h1>BP Streams</h1>
+    )
+  }
 }
+
+export { App }
