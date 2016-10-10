@@ -4,7 +4,9 @@
   "description": "",
   "main": "entry.js",
   "scripts": {
-    "start": "webpack-dev-server && nodemon server/server.js",
+    "start": "node server/server.js",
+    "backend": "nodemon server/server.js",
+    "webpack": "webpack --progress --colors --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

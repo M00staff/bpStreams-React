@@ -41,7 +41,29 @@ class Years extends React.Component {
 
   pickYear(year, row) {
 
-    fetch('/years').then(console.log('frontend click'))
+    // we HAVE to handle requests on the back end because of CORS
+    fetch('/years').then(function(response) {
+      console.log(response);
+    });
+
+    // fetch('https://archive.org/advancedsearch.php?q=BrothersPast,%20year:'+ 2001 +'&fl%5B%5D=year&fl%5B%5D=date&fl%5B%5D=identifier,title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows='+ 15 +'&page=1&output=json')
+    // .then(function(response) {
+    //   console.log(response); // "opaque"
+    //   })
+
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('GET', 'https://archive.org/advancedsearch.php?q=BrothersPast,%20year:'+ 2001 +'&fl%5B%5D=year&fl%5B%5D=date&fl%5B%5D=identifier,title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows='+ 15 +'&page=1&output=json');
+    // xhr.responseType = 'json';
+    //
+    // xhr.onload = function() {
+    //   console.log(xhr.response);
+    // };
+    //
+    // xhr.onerror = function() {
+    //   console.log("Booo");
+    // };
+    //
+    // xhr.send();
 
   }
 

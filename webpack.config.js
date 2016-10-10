@@ -4,7 +4,7 @@ module. exports = {
   entry: './entry.js',
   output: {
     path: './',
-    filname: 'bundle.js'
+    filename: 'bundle.js'
   },
   devServer: {
     inline: true,

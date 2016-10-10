@@ -32,8 +32,9 @@ app.use(express.static(path.join(__dirname, '../')));
 
 
 app.get('/years', function(req, res) {
-  console.log('server side clicked');
-  return res.jsonp('https://archive.org/advancedsearch.php?q=BrothersPast,%20year:'+ 2001 +'&fl%5B%5D=year&fl%5B%5D=date&fl%5B%5D=identifier,title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows='+ 15 +'&page=1&output=json&callback=JSONP_CALLBACK')
+  console.log('server side clicked')
+  req.get('https://archive.org/advancedsearch.php?q=BrothersPast,%20year:'+ 2001 +'&fl%5B%5D=year&fl%5B%5D=date&fl%5B%5D=identifier,title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows='+ 15 +'&page=1&output=json')
+  return res.json()
 })
 
 // catch all route
