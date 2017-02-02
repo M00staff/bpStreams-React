@@ -21441,7 +21441,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.App = undefined;
+	exports.Years = exports.App = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -21529,8 +21529,16 @@
 	    value: function pickYear(year, row) {
 
 	      // we HAVE to handle requests on the back end because of CORS
-	      fetch('/years').then(function (response) {
-	        console.log(response);
+	      fetch('/years', {
+	        method: 'GET',
+	        headers: {
+	          Accept: 'application/json',
+	          'Content-Type': 'application/json'
+	        }
+	      }).then(function (response) {
+	        return response.json();
+	      }).then(function (json) {
+	        console.log(json);
 	      });
 
 	      // fetch('https://archive.org/advancedsearch.php?q=BrothersPast,%20year:'+ 2001 +'&fl%5B%5D=year&fl%5B%5D=date&fl%5B%5D=identifier,title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows='+ 15 +'&page=1&output=json')
@@ -21683,6 +21691,8 @@
 
 	  return Years;
 	}(_react2.default.Component);
+
+	exports.Years = Years;
 
 /***/ },
 /* 173 */

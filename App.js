@@ -42,8 +42,14 @@ class Years extends React.Component {
   pickYear(year, row) {
 
     // we HAVE to handle requests on the back end because of CORS
-    fetch('/years').then(function(response) {
-      console.log(response);
+    fetch('/years', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }).then(response => response.json()).then(json => {
+      console.log(json);
     });
 
     // fetch('https://archive.org/advancedsearch.php?q=BrothersPast,%20year:'+ 2001 +'&fl%5B%5D=year&fl%5B%5D=date&fl%5B%5D=identifier,title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows='+ 15 +'&page=1&output=json')
@@ -131,3 +137,4 @@ class Years extends React.Component {
     )
   }
 }
+export { Years }
