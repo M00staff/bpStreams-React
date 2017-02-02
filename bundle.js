@@ -21529,13 +21529,7 @@
 	    value: function pickYear(year, row) {
 
 	      // we HAVE to handle requests on the back end because of CORS
-	      fetch('/years', {
-	        method: 'GET',
-	        headers: {
-	          Accept: 'application/json',
-	          'Content-Type': 'application/json'
-	        }
-	      }).then(function (response) {
+	      fetch('./years?year=' + year).then(function (response) {
 	        return response.json();
 	      }).then(function (json) {
 	        console.log(json);

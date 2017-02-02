@@ -42,13 +42,8 @@ class Years extends React.Component {
   pickYear(year, row) {
 
     // we HAVE to handle requests on the back end because of CORS
-    fetch('/years', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-    }).then(response => response.json()).then(json => {
+    fetch(`./years?year=${year}`)
+    .then(response => response.json()).then(json => {
       console.log(json);
     });
 
