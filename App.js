@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import fetchJsonp from 'fetch-jsonp';
+import songLyrics from './songLyrics';
 // const style = require('./styles.css')
 
 
@@ -20,6 +21,7 @@ class App extends React.Component {
 
         <div className="column column-12 footnote">
           <a href="mailto:MostafaSHabib@gmail.com">Questions and Site Issues can be sent to MostafaSHabib@gmail.com</a>
+          <p>{ songLyrics[Math.floor(Math.random() * songLyrics.length)] }</p>
         </div>
     </div>
     )
