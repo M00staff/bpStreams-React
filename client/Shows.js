@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 // import { Years } from './Years';
 
 class Shows extends React.Component {
@@ -10,10 +10,20 @@ class Shows extends React.Component {
   }
 
 
+  pickShow(show) {
+    console.log(show);
+    fetch(`./shows?show=${show}`)
+    .then(response => response.json()).then(json => {
+      this.setState({ setList: json })
+      console.log(this.state.setList);
+    })
+  }
+
+
   displayShows(shows) {
     return (
       shows.map((data, index) =>
-        <div key={index}>{ data.title }</div>
+        <a className="allShows" key={index} onClick={ this.pickShow.bind(this, data.identifier) }>{ data.title }</a>
       )
     )
   }
