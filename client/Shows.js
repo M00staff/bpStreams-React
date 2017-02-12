@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Years } from './Years';
+// import { Years } from './Years';
 
 class Shows extends React.Component {
 
 
-componentWillMount() {
-  // console.log(this.props.shows);
-}
+  componentWillMount() {
+    // console.log(this.props.shows);
+  }
 
 
   displayShows(shows) {
-    shows.map((data) =>
-      <div>{data.title}</div>
+    return (
+      shows.map((data, index) =>
+        <div key={index}>{ data.title }</div>
+      )
     )
   }
 

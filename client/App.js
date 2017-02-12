@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import fetchJsonp from 'fetch-jsonp';
 import { Years } from './Years';
 import songLyrics from '../songLyrics';
 // const style = require('./styles.css')
