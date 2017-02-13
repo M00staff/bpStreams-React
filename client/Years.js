@@ -14,6 +14,19 @@ class Years extends React.Component {
     // we HAVE to handle requests on the back end because of CORS
     fetch(`./years?year=${year}&row=${row}`)
     .then(response => response.json()).then(json => {
+
+      // sort response by date
+      json.response.docs.sort((a, b) => {
+        if (a.date > b.date) {
+          return 1;
+      }
+        if (a.date < b.date) {
+          return -1;
+      }
+        return 0;
+      })
+
+      // trigger rendering
       this.setState({ shows: json.response.docs })
       // console.log(this.state.shows);
     });
