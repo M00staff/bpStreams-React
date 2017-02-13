@@ -11,7 +11,7 @@ class Songs extends React.Component {
   renderSongs(songs) {
     return (
       songs.map((data, index) =>
-        <div className='allSongs'>{data.songTitle}</div>
+        <div className='allSongs' key={index}>{data.songTitle}</div>
       )
     )
   }

@@ -34,6 +34,19 @@ class Shows extends React.Component {
        const ext = fileName.substr(fileName.lastIndexOf('.') + 1);
        if ((ext === 'ogg' || ext === 'mp3') && songName !== undefined) {
          setList.push({songTitle: songName, songFile: fileName, deeOne: baseUrl, directory: dir, songSource: `http://${baseUrl}${dir}/${fileName}`})
+
+        // sort playlist
+        setList.sort((a, b) => {
+          if (a.songFile > b.songFile) {
+            return 1;
+        }
+          if (a.songFile < b.songFile) {
+            return -1;
+        }
+          return 0;
+        })
+
+
        }
      })
       this.setState({ setList: setList })
