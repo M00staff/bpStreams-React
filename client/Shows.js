@@ -50,6 +50,8 @@ class Shows extends React.Component {
        }
      })
       this.setState({ setList: setList })
+      // jump to playlist
+      window.scrollTo(0, 250);
       // console.log(this.state.setList);
     })
   }

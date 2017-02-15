@@ -173,7 +173,7 @@ button:hover {
   text-decoration: none;
 }
 
-footer {
+/*footer {
   background: #000;
   position: fixed;
   left: 0;
@@ -187,7 +187,7 @@ footer .player-song-title {
 footer .player-song-title,
 footer audio {
   vertical-align: middle;
-}
+}*/
 
 /*Media Query*/
 @media only screen
