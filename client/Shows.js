@@ -16,7 +16,7 @@ class Shows extends React.Component {
 
 
   pickShow(show) {
-    console.log(show);
+    // console.log(show);
     fetch(`./shows?show=${show}`)
     .then(response => response.json()).then(json => {
 
