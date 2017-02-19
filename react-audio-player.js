@@ -40,6 +40,11 @@ class ReactAudioPlayer extends Component {
     audio.addEventListener('ended', (e) => {
       this.clearListenTrack();
       this.props.onEnded && this.props.onEnded(e);
+
+      //     ---------- my own tid bit ----------
+      // runs the next song function in the parent component
+      this.props.nextJam(this.props.setList, this.props.songIndex)
+
     });
 
     // When the user pauses playback
