@@ -1,43 +1,38 @@
 import React from 'react';
-import ReactAudioPlayer from 'react-audio-player';
+import ReactAudioPlayer from '../react-audio-player';
 
 class Songs extends React.Component {
 
   constructor() {
     super();
-    this.state = { track: null }
-  }
-
-  componentWillMount() {
-    // console.log(this.props.setList);
-    // this.setState({
-    //   track: this.props.setList[0].songSource,
-    //   title: this.props.setList[0].songTitle
-    // })
+    this.state = { track: null };
+    this.nextJam = this.nextJam.bind(this); // having scope issues with this.setState, need to bind this for it to work
   }
 
 
   songPick(song, index) {
 
-    let nextSongs = [];
-
-    // iterate through the setlist
-    for (let i = 0; i < this.props.setList.length; i++) {
-      // grab song index that was picked
-      if (song === this.props.setList[i]) {
-        let songCount = i;
-        // iterate through remaining songs
-        for (let x = songCount; x < this.props.setList.length; x++) {
-          nextSongs.push(this.props.setList[x])
-        }
-      }
-    }
-
     this.setState({
       track: song.songSource,
       title: song.songTitle,
-      next: nextSongs
+      songIndex: index,
     });
+
+    // let nextSongs = []
+    //
+    // // maybe dont need since i can pass setlist down ---
+    // // iterate through the setlist
+    // for (let i = 0; i < this.props.setList.length; i++) {
+    //   // grab song index that was picked
+    //   if (song === this.props.setList[i]) {
+    //     let songCount = i;
+    //     // iterate through remaining songs
+    //     for (let x = songCount; x < this.props.setList.length; x++) {
+    //       nextSongs.push(this.props.setList[x])
+    //     };
+    //     this.setState({ nextSongs: nextSongs })
+    //   }
+    // }
 
   }
 
@@ -51,6 +46,28 @@ class Songs extends React.Component {
   }
 
 
+  nextJam(setList, index) {
+    const songCount = index + 1;
+    // possible alt method for resetting last song
+    // const songCount = (index + 1) % setList.length;
+    const len = setList.length;
+
+    if (songCount >= len) {
+      this.setState({
+        track: setList[0].songSource,
+        title: setList[0].songTitle,
+        songIndex: 0,
+      })
+    } else {
+      this.setState({
+        track: setList[songCount].songSource,
+        title: setList[songCount].songTitle,
+        songIndex: index + 1,
+      });
+    }
+  }
+
+
   render() {
     return (
       <div className='allSongsContainer'>{ this.renderSongs(this.props.setList) }
@@ -58,6 +75,9 @@ class Songs extends React.Component {
           <ReactAudioPlayer
             src={ this.state.track }
             style={{ marginTop: '1em' }}
+            setList={this.props.setList}
+            songIndex={this.state.songIndex}
+            nextJam={this.nextJam}
             autoPlay
           />
 
