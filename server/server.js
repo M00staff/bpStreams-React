@@ -58,9 +58,9 @@ app.get('/shows', function(req, res) {
 
 
 // catch all route
-app.get('*', function(req, res) {
-    res.sendFile('bundle.js', { root: __dirname }); // load our public/index.html file
-});
+// app.get('*', function(req, res) {
+//     res.sendFile('index.html', { root: __dirname }); // load our public/index.html file
+// });
 
 // recognize that bundle.js is static file at appropriate location
 // app.use('/dist', express.static(path.join(__dirname, 'dist')));
