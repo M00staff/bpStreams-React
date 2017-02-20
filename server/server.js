@@ -58,9 +58,9 @@ app.get('/shows', function(req, res) {
 
 
 // catch all route
-app.get('*', function(req, res) {
-    res.sendFile('index.html', { root: './'}); // load our public/index.html file
-});
+// app.get('*', function(req, res) {
+//     res.sendFile('index.html', { root: __dirname }); // load our public/index.html file
+// });
 
 // start app ===============================================
 // startup our app at http://localhost:8080
