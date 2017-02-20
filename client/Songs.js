@@ -81,7 +81,9 @@ class Songs extends React.Component {
             autoPlay
           />
 
-          <p>{ this.state.title }</p>
+        <div style={{ color: 'blue', fontFamily: '"Comic Sans MS", cursive, sans-serif' }}>
+          { this.state.title }
+        </div>
 
       </div>
     )
