@@ -95,9 +95,6 @@ a {
   border-radius: 20px;
   font-family: "Comic Sans MS", cursive, sans-serif;
   cursor: pointer;
-  /*position: fixed;*/
-  /*left: 0;*/
-  /*bottom: 0;*/
 }
 
 .allSongs:hover {
@@ -126,7 +123,6 @@ a {
 button {
   border: solid 2px grey;
   background-color: aliceblue;
-  /*margin: 1em;*/
   border-radius: 20px;
   cursor: pointer;
   padding: 1em;
@@ -138,15 +134,6 @@ button:hover {
   background-color: #CBDAE6;
 }
 
-/*.search {
-  font-family: "Courier New", Courier, monospace;
-  align-items: center;
-  text-align: center;
-  width: 25em;
-  margin-top: 1em;
-  padding: 1em;
-  font-size: 1em;
-}*/
 
 .column-1 { width: 8.333%; }
 .column-2 { width: 16.66%; }
@@ -161,33 +148,12 @@ button:hover {
 .column-11 { width: 91.66%; }
 .column-12 { width: 100%; }
 
-.footNote {
-  font-family: "Arial Black", Gadget, sans-serif;  font-size: 15px;
-  padding: 10px;
-  margin-bottom: 3em;
-}
 
-.footNote a {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/*footer {
-  background: #000;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+.BiscoLyrics {
+  margin-top: 15vh;
   text-align: center;
+  font-family: "Courier New", Courier, monospace;
 }
-footer .player-song-title {
-  color: white;
-}
-footer .player-song-title,
-footer audio {
-  vertical-align: middle;
-}*/
 
 /*Media Query*/
 @media only screen
@@ -195,12 +161,6 @@ footer audio {
     only screen and (max-device-width: 667px),
     only screen and (max-width: 480px)
 {
-  footer .player-song-title, footer audio {
-    height: 60%;
-  }
-  footer {
-    height: 10%;
-  }
   .yearButtons p{
     font-size: 3em;
   }

@@ -19,10 +19,23 @@ class App extends React.Component {
 
       <Years />
 
-        <div className="column column-12 footnote">
-          <a href="mailto:MostafaSHabib@gmail.com">Questions and Site Issues can be sent to MostafaSHabib@gmail.com</a>
-          <p>{ songLyrics[Math.floor(Math.random() * songLyrics.length)] }</p>
+        <div className="column column-12"
+          style={{
+            fontFamily: '"Arial Black", Gadget, sans-serif',
+            fontSize: '15px',
+            fontWeight: 'bold',
+            padding: '10px',
+          }}>
+          <a href="mailto:MostafaSHabib@gmail.com">
+            Questions and Site Issues can be sent to MostafaSHabib@gmail.com
+          </a>
         </div>
+
+
+            <p className="column column-12 BiscoLyrics">
+              { songLyrics[Math.floor(Math.random() * songLyrics.length)] }
+            </p>
+
     </div>
     )
   }
