@@ -62,6 +62,9 @@ app.get('/shows', function(req, res) {
 //     res.sendFile('index.html', { root: __dirname }); // load our public/index.html file
 // });
 
+// recognize that bundle.js is static file at appropriate location
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
+
 // start app ===============================================
 // startup our app at http://localhost:8080
 app.listen(port);
