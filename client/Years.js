@@ -29,6 +29,9 @@ class Years extends React.Component {
       // trigger rendering
       this.setState({ shows: json.response.docs })
       // console.log(this.state.shows);
+
+      // jump to show list
+      window.scrollTo(0, 475);
     });
   }
 
