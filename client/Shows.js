@@ -15,7 +15,7 @@ class Shows extends React.Component {
   }
 
 
-  pickShow(show) {
+  pickShow(show, title) {
     // console.log(show);
     fetch(`./shows?show=${show}`)
     .then(response => response.json()).then(json => {
@@ -49,10 +49,10 @@ class Shows extends React.Component {
 
        }
      })
-      this.setState({ setList: setList })
+      this.setState({ setList: setList, title: title })
       // jump to playlist
       window.scrollTo(0, 250);
-      // console.log(this.state.setList);
+      console.log(this.state.setList);
     })
   }
 
@@ -60,7 +60,7 @@ class Shows extends React.Component {
   displayShows(shows) {
     return (
       shows.map((data, index) =>
-        <a className='allShows' key={index} onClick={ this.pickShow.bind(this, data.identifier) }>{ data.title }</a>
+        <a className='allShows' key={index} onClick={ this.pickShow.bind(this, data.identifier, data.title) }>{ data.title }</a>
       )
     )
   }
@@ -74,6 +74,7 @@ class Shows extends React.Component {
           ?
             <Songs
               setList={this.state.setList}
+              title={this.state.title}
             />
           :
             null

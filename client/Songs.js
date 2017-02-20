@@ -70,7 +70,9 @@ class Songs extends React.Component {
 
   render() {
     return (
-      <div className='allSongsContainer'>{ this.renderSongs(this.props.setList) }
+      <div className='allSongsContainer'>
+        <div className='showHeading'> {this.props.title} </div>
+          { this.renderSongs(this.props.setList) }
 
           <ReactAudioPlayer
             src={ this.state.track }
