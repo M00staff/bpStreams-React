@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './client/redux/reducers';
-import { App } from './client/App';
+import App from './client/App';
 import './styles.css';
 
 // Wrap the app in Provider and create the Redux Store in the Entry Point
@@ -14,5 +14,4 @@ ReactDOM.render(
     <div>
       <App />
     </div>
-  </Provider>
-  , document.getElementById('app'));
+  </Provider>, document.getElementById('app'));
