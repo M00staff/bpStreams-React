@@ -1,7 +1,7 @@
 const path = require('path');
 
 module. exports = {
-  entry: './entry.js',
+  entry: ['babel-polyfill', './entry.js'],
   output: {
     path: './',
     filename: 'bundle.js'
@@ -17,7 +17,7 @@ module. exports = {
         loader: 'babel',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'es2017']
         }
       },
       {

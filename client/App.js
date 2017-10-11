@@ -1,9 +1,10 @@
 import React from 'react';
-import Years from './Years';
+import YearContainer from './containers/YearContainer';
 import songLyrics from '../songLyrics';
 // const style = require('./styles.css')
 
 // Changed this to a presentational/stateless component since is has no state or lifecycle hooks
+// YearContainer will render its "connected" component
 const App = () => (
   <div>
     <div className="column column-12">
@@ -14,7 +15,7 @@ const App = () => (
       </ul>
     </div>
 
-    <Years />
+    <YearContainer />
 
     <div
       className="column column-12"

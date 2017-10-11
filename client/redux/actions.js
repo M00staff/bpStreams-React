@@ -3,10 +3,11 @@
 // We use Dispatch Action to Props to send them back up
 // Then it will go to the reducer, fire and call the switch statements and return the new state object
 
-export const yearPicked = (year) => {
+export const yearPicked = (year, row) => {
   return {
     type: 'SELECT_YEAR',
     year,
+    row,
   };
 };
 

@@ -4,8 +4,8 @@
   "description": "",
   "main": "entry.js",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "backend": "node server/server.js",
+    "start": "node server/server.js",
+    "backend": "nodemon server/server.js",
     "webpack": "webpack --progress --colors --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config ./webpack.config.js --progress --colors",
@@ -29,7 +29,9 @@
     "babel-core": "^6.14.0",
     "babel-eslint": "^8.0.1",
     "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.14.0",
+    "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.25.0",
     "eslint": "^4.8.0",
@@ -62,7 +64,8 @@
       "react/jsx-quotes": 0,
       "react/require-extension": 0,
       "max-len": 0,
-      "arrow-body-style": 1
+      "arrow-body-style": 1,
+      "react/forbid-prop-types": 0
     }
   }
 }

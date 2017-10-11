@@ -1,4 +1,8 @@
+// we are not rendering this and the other 'mixed' components anymore
+
 import React from 'react';
+import { connect } from 'react-redux';
+import { yearPicked } from './redux/actions';
 import Shows from './Shows';
 
 class Years extends React.Component {
@@ -40,6 +44,7 @@ class Years extends React.Component {
           <div className="yearButtons">
             <p>Select Year</p>
             <a href="#/">
+              <button onClick={() => yearPicked(2001, 15)}>TEST</button>
               <button onClick={() => this.pickYear(2001, 15)}>2001</button>
               <button onClick={() => this.pickYear(2002, 26)}>2002</button>
               <button onClick={() => this.pickYear(2003, 84)}>2003</button>
@@ -67,4 +72,15 @@ class Years extends React.Component {
     );
   }
 }
-export default Years;
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    yearPicked: (year, row) => {
+      dispatch(yearPicked(year, row));
+    },
+  };
+};
+
+
+export default connect(null, mapDispatchToProps)(Years);
