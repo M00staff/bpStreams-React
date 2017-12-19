@@ -1,14 +1,12 @@
-const path = require('path');
-
-module. exports = {
+module.exports = {
   entry: ['babel-polyfill', './entry.js'],
   output: {
     path: './',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
     inline: true,
-    port: 7777
+    port: 7777,
   },
   module: {
     loaders: [
@@ -17,13 +15,14 @@ module. exports = {
         loader: 'babel',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react', 'es2017']
-        }
+          presets: ['es2015', 'react', 'es2017'],
+        },
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
-      }
-    ]
-  }
-}
+        loader: 'style-loader!css-loader',
+      },
+    ],
+  },
+};
+

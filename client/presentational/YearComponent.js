@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ShowContainer from '../containers/ShowContainer';
 
 const YearComponent = ({ yearClicked, getShows }) => (
   <div>
@@ -23,9 +24,9 @@ const YearComponent = ({ yearClicked, getShows }) => (
         </a>
       </div>
 
-      {/* stuck here - first get props to load on first click then render the shows component */}
-      { getShows.length > 0 &&
-        console.log(getShows[0].shows[0])
+      {
+        getShows !== 'empty' &&
+        <ShowContainer />
       }
 
     </div>
@@ -39,7 +40,7 @@ YearComponent.propTypes = {
 
 YearComponent.defaultProps = {
   yearClicked: null,
-  getShows: {},
+  getShows: null,
 };
 
 export default YearComponent;

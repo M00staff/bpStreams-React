@@ -3,18 +3,58 @@
 // We use Dispatch Action to Props to send them back up
 // Then it will go to the reducer, fire and call the switch statements and return the new state object
 
-export const yearPicked = (year, row) => {
-  return {
+// THUNK TO RETURN THIS ASYNC STUFF NEXT
+function fetchShows(year, row) {
+  const showList = [];
+  return fetch(`./years?year=${year}&row=${row}`)
+    .then(response => response.json())
+    .then((json) => {
+      // sort response by date
+      json.response.docs.sort((a, b) => {
+        if (a.date > b.date) {
+          return 1;
+        }
+        if (a.date < b.date) {
+          return -1;
+        }
+        return 0;
+      });
+      showList.push(json.response.docs);
+    });
+}
+
+export function yearPicked(year, row) {
+  const showList = [];
+  fetch(`./years?year=${year}&row=${row}`)
+    .then(response => response.json())
+    .then((json) => {
+      // sort response by date
+      json.response.docs.sort((a, b) => {
+        if (a.date > b.date) {
+          return 1;
+        }
+        if (a.date < b.date) {
+          return -1;
+        }
+        return 0;
+      });
+      showList.push(json.response.docs);
+    });
+
+  return ({
     type: 'SELECT_YEAR',
-    year,
-    row,
-  };
-};
+    shows: showList,
+  });
+}
+
 
 export const showPicked = (show) => {
-  return {
-    type: 'SELECT_SHOW',
-    show,
+  return (dispatch, getState) => {
+    getState();
+    dispatch({
+      type: 'SELECT_SHOW',
+      show,
+    });
   };
 };
 
