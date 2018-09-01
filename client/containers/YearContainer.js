@@ -1,17 +1,13 @@
 import { connect } from 'react-redux';
-import { yearPicked } from '../redux/actions';
+import { yearRequest } from '../redux/reducers/showReducer';
 import YearComponent from '../presentational/YearComponent';
 
-const mapStateToProps = ({ getShows }) => {
-  return {
-    getShows,
-  };
-};
+const mapStateToProps = ({ getShows }) => ({ getShows });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     yearClicked: (year, row) => {
-      dispatch(yearPicked(year, row));
+      dispatch(yearRequest(dispatch, year, row));
     },
   };
 };

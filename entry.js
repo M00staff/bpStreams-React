@@ -14,7 +14,7 @@ const store = createStore(
   /* preloadedState, */
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(logger, thunk),
+  applyMiddleware(thunk, logger),
 );
 /* eslint-enable */
 
