@@ -1,4 +1,4 @@
-import { yearFail, yearSuccess } from './redux/reducers/showReducer';
+import { yearFail, yearSuccess } from '../redux/yearReducer';
 
 export default function grabYearData(dispatch, year, row) {
   const showList = [];

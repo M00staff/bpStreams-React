@@ -1,11 +1,13 @@
 // Pure function; returns Object; takes in previous state, action dispatched and returns next state
-import grabYearData from '../../apiCalls';
+import grabYearData from '../api/yearApi';
 
-export function yearRequest(dispatch, year, row) {
+export function yearRequest(dispatch, yearPicked, row) {
   dispatch({ type: 'SELECT_YEAR' });
-  return () => grabYearData(dispatch, year, row);
+  return () => grabYearData(dispatch, yearPicked, row);
 }
 export function yearSuccess(showList) {
+  // jump to playlist
+  window.scrollTo(0, 1000);
   return ({
     type: 'YEAR_SUCCESS',
     showList,
@@ -26,7 +28,6 @@ export default function shows(state, action) {
         ...state,
         showList: action.showList,
       };
-
     default:
       return { ...state };
   }

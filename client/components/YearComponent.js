@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ShowContainer from '../containers/ShowContainer';
+import { yearRequest } from '../redux/yearReducer';
 
-const YearComponent = ({ yearClicked, getShows }) => (
+const YearComponent = ({ yearClicked }) => (
   <div>
-    <div className="column column-12">
+    <div>
       <div className="yearButtons">
         <p>Select Year</p>
         <a href="#/">
@@ -24,23 +25,25 @@ const YearComponent = ({ yearClicked, getShows }) => (
         </a>
       </div>
 
-      {
-        getShows !== 'empty' &&
-        <ShowContainer />
-      }
-
     </div>
   </div>
 );
 
 YearComponent.propTypes = {
   yearClicked: PropTypes.func,
-  getShows: PropTypes.any,
 };
 
 YearComponent.defaultProps = {
   yearClicked: null,
-  getShows: null,
 };
 
-export default YearComponent;
+const mapStateToProps = shows => shows;
+
+const mapDispatchToProps = dispatch => ({
+  yearClicked: (year, row) => {
+    dispatch(yearRequest(dispatch, year, row));
+  },
+});
+
+const YearContainer = connect(mapStateToProps, mapDispatchToProps)(YearComponent);
+export default YearContainer;
