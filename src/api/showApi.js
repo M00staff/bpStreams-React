@@ -1,4 +1,4 @@
-// import { showSuccess } from '../redux/showReducer';
+import { showSuccess } from '../redux/showReducer';
 // TODO - add error handling
 
 export default function grabShowData(dispatch, show, title) {
@@ -26,7 +26,6 @@ export default function grabShowData(dispatch, show, title) {
         if (a.songFile < b.songFile) return -1;
         return 0;
       });
-      return {setList: sortedList, title: title}
-      // dispatch(showSuccess(sortedList, title));
+      dispatch(showSuccess(sortedList, title));
     });
 }
