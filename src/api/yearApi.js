@@ -1,11 +1,9 @@
 import { yearFail, yearSuccess } from '../reducers/yearReducer';
 
 export default function grabYearData(dispatch, year, row) {
-  const showList = [];
   return fetch(`http://localhost:8080/years?year=${year}&row=${row}`)
     .then(response => response.json())
     .then((json) => {
-      console.log(json)
       if (!json) {
         console.log('failed')
         dispatch(yearFail());
@@ -20,7 +18,6 @@ export default function grabYearData(dispatch, year, row) {
         }
         return 0;
       });
-      showList.push(json.response.docs);
-      dispatch(yearSuccess(showList));
+      dispatch(yearSuccess(json.response.docs));
     });
 }

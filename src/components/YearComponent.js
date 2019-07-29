@@ -1,12 +1,11 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import shows, { yearRequest } from '../reducers/yearReducer';
-// import { yearRequest } from '../redux/yearReducer';
+import { yearRequest } from '../reducers/yearReducer';
+import { useStateValue } from '../Provider';
 
 const YearComponent = () => {
-  const initialState = [];
-  const [state, dispatch] = useReducer(shows, initialState);
-  // const { yearRequest, yearSuccess, yearFail } = actions(showDispatch);
+  const [state, dispatch] = useStateValue();
+
   return (
     <div>
       <div>
@@ -42,13 +41,4 @@ YearComponent.defaultProps = {
   yearClicked: null,
 };
 
-// const mapStateToProps = shows => shows;
-
-// const mapDispatchToProps = dispatch => ({
-//   yearClicked: (year, row) => {
-//     dispatch(yearRequest(dispatch, year, row));
-//   },
-// });
-
-// const YearContainer = connect(mapStateToProps, mapDispatchToProps)(YearComponent);
 export default YearComponent;

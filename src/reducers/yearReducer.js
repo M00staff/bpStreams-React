@@ -10,7 +10,7 @@ export function yearSuccess(showList) {
   window.scrollTo(0, 1000);
   return ({
     type: 'YEAR_SUCCESS',
-    showList,
+    showList: showList,
   });
 }
 export function yearFail() {

@@ -3,9 +3,9 @@ import YearContainer from './components/YearComponent';
 import SongContainer from './components/SongComponent';
 import ShowContainer from './components/ShowComponent';
 import songLyrics from './songLyrics';
+import { StateProvider } from './Provider';
+import shows from './reducers/yearReducer';
 
-// Changed this to a presentational/stateless component since is has no state or lifecycle hooks
-// YearContainer will render its "connected" component
 const App = () => (
   <div>
     <div className="column column-12">
@@ -17,9 +17,11 @@ const App = () => (
     </div>
 
     <div className="column column-12">
-      <YearContainer />
-      <SongContainer />
-      <ShowContainer />
+      <StateProvider initialState={[]} reducer={shows}>
+        <YearContainer />
+        <SongContainer />
+        <ShowContainer />
+      </StateProvider>
     </div>
 
     <div
