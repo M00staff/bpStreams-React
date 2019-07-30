@@ -1,78 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // import show from '../reducers/showReducer';
 import ReactAudioPlayer from '../react-audio-player';
+import { useStateValue } from '../Provider';
 
+const SongComponent = () => {
+  const [state] = useStateValue();
+  const [track, setTrack] = useState(null);
+  const [index, setIndex] = useState(null);
+  const [title, setTitle] = useState(null);
 
-class SongComponent extends React.Component {
-  constructor() {
-    super();
-    this.state = { track: null, songs: [] };
-    this.nextJam = this.nextJam.bind(this); // having scope issues with this.setState, need to bind this for it to work
+  const songPick = (song, index) => {
+    setTrack(song.songSource);
+    setIndex(index);
+    setTitle(song.songTitle)
   }
 
-  songPick(song, index) {
-    this.setState({
-      track: song.songSource,
-      title: song.songTitle,
-      songIndex: index,
-    });
-  }
-
-  nextJam(setList, index) {
+  const nextJam = (setList, index) => {
     const songCount = index + 1;
     // possible alt method for resetting last song
     // const songCount = (index + 1) % setList.length;
     const len = setList.length;
 
     if (songCount >= len) {
-      this.setState({
-        track: setList[0].songSource,
-        title: setList[0].songTitle,
-        songIndex: 0,
-      });
+      setTrack(setList[0].songSource)
+      setTitle(setList[0].songTitle)
+      setIndex(0)
     } else {
-      this.setState({
-        track: setList[songCount].songSource,
-        title: setList[songCount].songTitle,
-        songIndex: index + 1,
-      });
+      setTrack(setList[songCount].songSource)
+      setTitle(setList[songCount].songTitle)
+      setIndex(index + 1)
     }
   }
 
-  renderSongs(songs) {
+  const renderSongs = (songs) => {
     return (
       songs && songs.map((data, index) =>
-        <div className="allSongs" key={data.songSource} onClick={() => this.songPick(data, index)} role="presentation">{data.songTitle}</div>,
+        <div className="allSongs" key={data.songSource} onClick={() => songPick(data, index)} role="presentation">{data.songTitle}</div>,
       )
     );
   }
 
-  render() {
     return (
-      this.state.songs.setList ?
+      state.setList ?
         <div className="allSongsContainer">
-          <div className="showHeading"> {this.state.songs.showTitle} </div>
-          {this.renderSongs(this.state.songs.setList)}
+          <div className="showHeading"> {state.showTitle} </div>
+          {renderSongs(state.setList)}
 
           <ReactAudioPlayer
-            src={this.state.track}
+            src={track}
             style={{ marginTop: '1em' }}
-            setList={this.state.songs.setList}
-            songIndex={this.state.songIndex}
-            nextJam={this.nextJam}
+            setList={state.setList}
+            songIndex={index}
+            nextJam={nextJam}
             autoPlay
           />
 
           <div style={{ color: 'blue', fontFamily: '"Comic Sans MS", cursive, sans-serif' }}>
-            { this.state.title }
+            { title }
           </div>
 
         </div>
         :
         <div />
     );
-  }
 }
 
 SongComponent.propTypes = {
@@ -84,7 +75,4 @@ SongComponent.defaultProps = {
   songs: null,
 };
 
-// const mapStateToProps = songs => songs;
-
-// const SongContainer = connect(mapStateToProps)(SongComponent);
 export default SongComponent

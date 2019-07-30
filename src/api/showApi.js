@@ -1,8 +1,8 @@
-import { showSuccess } from '../redux/showReducer';
+import { showSuccess } from '../Reducer';
 // TODO - add error handling
 
 export default function grabShowData(dispatch, show, title) {
-  fetch(`./shows?show=${show}`)
+  fetch(`http://localhost:8080/shows?show=${show}`)
     .then(response => response.json()).then((json) => {
       // grab outer level directory info
       const setList = [];

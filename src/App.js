@@ -3,8 +3,8 @@ import YearContainer from './components/YearComponent';
 import SongContainer from './components/SongComponent';
 import ShowContainer from './components/ShowComponent';
 import songLyrics from './songLyrics';
+import reducer from './Reducer';
 import { StateProvider } from './Provider';
-import shows from './reducers/yearReducer';
 
 const App = () => (
   <div>
@@ -17,7 +17,7 @@ const App = () => (
     </div>
 
     <div className="column column-12">
-      <StateProvider initialState={[]} reducer={shows}>
+      <StateProvider initialState={[]} reducer={reducer}>
         <YearContainer />
         <SongContainer />
         <ShowContainer />

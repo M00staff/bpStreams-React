@@ -1,4 +1,4 @@
-import { yearFail, yearSuccess } from '../reducers/yearReducer';
+import { yearFail, yearSuccess } from '../Reducer';
 
 export default function grabYearData(dispatch, year, row) {
   return fetch(`http://localhost:8080/years?year=${year}&row=${row}`)

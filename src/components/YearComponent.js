@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { yearRequest } from '../reducers/yearReducer';
+import { yearRequest } from '../Reducer';
 import { useStateValue } from '../Provider';
 
 const YearComponent = () => {

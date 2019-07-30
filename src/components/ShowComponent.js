@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { showRequest } from '../Reducer';
 import { useStateValue } from '../Provider';
 
-const ShowComponent = ({ showClicked }) => {
-  const [state] = useStateValue();
+const ShowComponent = () => {
+  const [state, dispatch] = useStateValue();
   return (
     <div>
       {
@@ -11,7 +12,13 @@ const ShowComponent = ({ showClicked }) => {
       ?
         state.showList.map(x => {
           return (
-            <a key={x.identifier} className="allShows" role="presentation" onClick={() => showClicked(x.identifier, x.title)}>
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+            <a
+              key={x.identifier}
+              className="allShows"
+              role="presentation"
+              onClick={() => showRequest(dispatch, x.identifier, x.title)}
+            >
               {x.title}
             </a>
           )
