@@ -1,11 +1,13 @@
-import React, { useReducer, createContext, useContext } from 'react';
+import React, { useReducer, createContext } from 'react';
 
 export const StateContext = createContext();
 
-export const StateProvider = ({reducer, initialState, children}) =>(
+export const StateProvider = ({reducer, initialState, children}) => (
+  // Should be called a reducer provider - cause all its really doing is passing around the reducer
   <StateContext.Provider value={useReducer(reducer, initialState)}>
     {children}
   </StateContext.Provider>
 );
 
-export const useStateValue = () => useContext(StateContext);
+// this was just abstracting out the useContext() call 
+// export const useStateValue = () => useContext(StateContext);

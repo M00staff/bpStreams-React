@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { yearRequest } from '../Reducer';
-import { useStateValue } from '../Provider';
+import { StateContext } from '../Provider';
 
 const YearComponent = () => {
-  const [state, dispatch] = useStateValue();
+  const reducerTuple = useContext(StateContext);
+  const dispatch = reducerTuple[1]
+  // alternative
+  // const [state, dispatch] = useContext(StateContext);
 
   return (
     <div>

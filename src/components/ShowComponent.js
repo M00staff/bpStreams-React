@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import { showRequest } from '../Reducer';
-import { useStateValue } from '../Provider';
+import { StateContext } from '../Provider';
 
 const ShowComponent = () => {
-  const [state, dispatch] = useStateValue();
+  // without abstracting the useContext
+  const [state, dispatch] = useContext(StateContext);
+  // const [state, dispatch] = useStateValue();
+
   return (
     <div>
       {

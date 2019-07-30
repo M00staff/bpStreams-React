@@ -17,6 +17,7 @@ const App = () => (
     </div>
 
     <div className="column column-12">
+      {/* Reducer Provider */}
       <StateProvider initialState={[]} reducer={reducer}>
         <YearContainer />
         <SongContainer />

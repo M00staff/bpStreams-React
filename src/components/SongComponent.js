@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-// import show from '../reducers/showReducer';
 import ReactAudioPlayer from '../react-audio-player';
-import { useStateValue } from '../Provider';
+import { StateContext } from '../Provider';
 
 const SongComponent = () => {
-  const [state] = useStateValue();
+  // const [state] = useStateValue();
+  const [state] = useContext(StateContext);
   const [track, setTrack] = useState(null);
   const [index, setIndex] = useState(null);
   const [title, setTitle] = useState(null);
