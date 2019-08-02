@@ -3,8 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.2",
+    "apollo-client": "^2.6.3",
+    "apollo-link": "^1.2.12",
+    "apollo-link-rest": "^0.7.3",
     "express": "^4.14.0",
+    "graphql": "^14.4.2",
+    "graphql-anywhere": "^4.2.4",
+    "graphql-tag": "^2.10.1",
     "nodemon": "^1.19.1",
+    "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
