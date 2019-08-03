@@ -18,7 +18,7 @@ export default function grabShowData(dispatch, show, title) {
     }
   `;
 
-  client.query({ query }).then(response => {
+  client.query({ query, fetchPolicy: 'no-cache' }).then(response => {
     console.log(response.data.show)
     // grab outer level directory info
     const setList = [];

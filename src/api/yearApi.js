@@ -14,8 +14,7 @@ export default function grabYearData(dispatch, year, row) {
 
   const query = gql`
     query getShows {
-      shows @rest(type: "Shows", path: "/years?year=${year}&row=${row}") {
-        __typename: Shows
+      shows (id: year) @rest(type: "Shows", path: "/years?year=${year}&row=${row}") {
         response {
           __typename: Shows
           docs @type(name: "Show") {
@@ -29,7 +28,7 @@ export default function grabYearData(dispatch, year, row) {
     }
   `;
 
-  client.query({ query }).then(response => {
+  client.query({ query, fetchPolicy: 'no-cache' }).then(response => {
     console.log(response)
     if (!response) {
       console.log('failed')
