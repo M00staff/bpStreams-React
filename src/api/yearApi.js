@@ -4,21 +4,11 @@ import { client } from '../ApolloClient';
 
 export default function grabYearData(dispatch, year, row) {
 
-  // const query = gql`
-  //   query getShows {
-  //     shows@rest(type: "Shows", path: "/years?year=${year}&row=${row}") {
-  //       response 
-  //     }
-  //   }
-  // `;
-
   const query = gql`
     query getShows {
       shows @rest(type: "Shows", path: "/years?year=${year}&row=${row}", method: "GET") {
-        response {
-          # no need for these type declarations with 'no-cache' on
-          __typename: Shows
-          docs @type(name: "Show") {
+        response @type(name: "Response") {
+          docs @type(name: "ShowList"){
             date
             identifier
             title
