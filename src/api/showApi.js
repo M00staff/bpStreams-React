@@ -20,13 +20,14 @@ export default function grabShowData(dispatch, show, title) {
 
   client.query({ query, fetchPolicy: 'no-cache' }).then(response => {
     console.log(response.data.show)
+    const { show } = response.data
     // grab outer level directory info
     const setList = [];
-    const baseUrl = response.data.show.d1;
-    const dir = response.data.show.dir;
+    const baseUrl = show.d1;
+    const dir = show.dir;
   
     // iterate through files and keep whats needed
-    response.data.show.files.forEach((data) => {
+    show.files.forEach((data) => {
       const fileName = data.name;
       const songName = data.title;
       //  const track = data.track;

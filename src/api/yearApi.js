@@ -14,8 +14,9 @@ export default function grabYearData(dispatch, year, row) {
 
   const query = gql`
     query getShows {
-      shows (id: year) @rest(type: "Shows", path: "/years?year=${year}&row=${row}") {
+      shows @rest(type: "Shows", path: "/years?year=${year}&row=${row}", method: "GET") {
         response {
+          # no need for these type declarations with 'no-cache' on
           __typename: Shows
           docs @type(name: "Show") {
             date
@@ -30,12 +31,13 @@ export default function grabYearData(dispatch, year, row) {
 
   client.query({ query, fetchPolicy: 'no-cache' }).then(response => {
     console.log(response)
+    const showList = response.data.shows.response.docs;
     if (!response) {
       console.log('failed')
       dispatch(yearFail());
     }
       // sort response by date
-      response.data.shows.response.docs.sort((a, b) => {
+      showList.sort((a, b) => {
         if (a.date > b.date) {
           return 1;
         }
@@ -44,7 +46,7 @@ export default function grabYearData(dispatch, year, row) {
         }
         return 0;
       });
-    dispatch(yearSuccess(response.data.shows.response.docs));
+    dispatch(yearSuccess(showList));
   })
 
 }
