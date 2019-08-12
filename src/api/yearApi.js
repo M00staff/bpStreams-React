@@ -3,12 +3,11 @@ import { yearFail, yearSuccess } from '../Reducer';
 import { client } from '../ApolloClient';
 
 export default function grabYearData(dispatch, year, row) {
-
   const query = gql`
     query getShows {
       shows @rest(type: "Shows", path: "/years?year=${year}&row=${row}", method: "GET") {
         response @type(name: "Response") {
-          docs @type(name: "ShowList"){
+          docs @type(name: "ShowList") {
             date
             identifier
             title
