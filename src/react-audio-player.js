@@ -3,6 +3,7 @@
 // and couldn't on the minified npm version
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const DEFAULT_LISTEN_INTERVAL = 10000;
 
@@ -117,23 +118,23 @@ class ReactAudioPlayer extends Component {
 }
 
 ReactAudioPlayer.propTypes = {
-  autoPlay: React.PropTypes.bool,
-  children: React.PropTypes.element,
-  className: React.PropTypes.string,
-  listenInterval: React.PropTypes.number,
-  onAbort: React.PropTypes.func,
-  onCanPlay: React.PropTypes.func,
-  onCanPlayThrough: React.PropTypes.func,
-  onEnded: React.PropTypes.func,
-  onError: React.PropTypes.func,
-  onListen: React.PropTypes.func,
-  onPause: React.PropTypes.func,
-  onPlay: React.PropTypes.func,
-  onSeeked: React.PropTypes.func,
-  preload: React.PropTypes.string,
-  src: React.PropTypes.string,
-  controls: React.PropTypes.bool,
-  style: React.PropTypes.object
+  autoPlay: PropTypes.bool,
+  children: PropTypes.element,
+  className: PropTypes.string,
+  listenInterval: PropTypes.number,
+  onAbort: PropTypes.func,
+  onCanPlay: PropTypes.func,
+  onCanPlayThrough: PropTypes.func,
+  onEnded: PropTypes.func,
+  onError: PropTypes.func,
+  onListen: PropTypes.func,
+  onPause: PropTypes.func,
+  onPlay: PropTypes.func,
+  onSeeked: PropTypes.func,
+  preload: PropTypes.string,
+  src: PropTypes.string,
+  controls: PropTypes.bool,
+  style: PropTypes.object
 };
 
 export default ReactAudioPlayer;
