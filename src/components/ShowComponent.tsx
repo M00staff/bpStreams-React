@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import { showRequest } from '../Reducer';
 import { StateContext } from '../Provider';
 
+interface ShowListItem {
+  date: string;
+  identifier: string;
+  title: string;
+  years: string;
+}
+
 const ShowComponent = () => {
   // without abstracting the useContext
   const [state, dispatch] = useContext(StateContext);
@@ -13,7 +20,7 @@ const ShowComponent = () => {
       {
         state.showList
       ?
-        state.showList.map(x => {
+        state.showList.map((x: ShowListItem) => {
           return (
             // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a

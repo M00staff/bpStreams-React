@@ -3,8 +3,16 @@ import { showSuccess } from '../Reducer';
 import { client } from '../ApolloClient';
 // TODO - add error handling
 
-export default function grabShowData(dispatch, show, title) {
+interface SetList {
+  songTitle: string;
+  songFile: string;
+  deeOne: string;
+  directory: string;
+  songSource: string;
+}
 
+// how to type dispatch?
+export default function grabShowData(dispatch: any, show: string, title: string) {
   const query = gql`
     query getShow {
       show@rest(type: "Show", path: "/shows?show=${show}") {
@@ -22,12 +30,12 @@ export default function grabShowData(dispatch, show, title) {
     console.log(response.data.show)
     const { show } = response.data
     // grab outer level directory info
-    const setList = [];
+    const setList: Array<SetList> = [];
     const baseUrl = show.d1;
     const dir = show.dir;
   
     // iterate through files and keep whats needed
-    show.files.forEach((data) => {
+    show.files.forEach((data: {name: string, title: string}) => {
       const fileName = data.name;
       const songName = data.title;
       //  const track = data.track;

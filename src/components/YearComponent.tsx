@@ -4,7 +4,7 @@ import { yearRequest } from '../Reducer';
 import { StateContext } from '../Provider';
 
 const YearComponent = () => {
-  const reducerTuple = useContext(StateContext);
+  const reducerTuple: any = useContext(StateContext);
   const dispatch = reducerTuple[1]
   // alternative
   // const [state, dispatch] = useContext(StateContext);

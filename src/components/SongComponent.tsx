@@ -3,20 +3,28 @@ import PropTypes from 'prop-types';
 import ReactAudioPlayer from '../react-audio-player';
 import { StateContext } from '../Provider';
 
+interface SetList {
+  songTitle: string;
+  songFile: string;
+  deeOne: string;
+  directory: string;
+  songSource: string;
+}
+
 const SongComponent = () => {
   // const [state] = useStateValue();
   const [state] = useContext(StateContext);
-  const [track, setTrack] = useState(null);
-  const [index, setIndex] = useState(null);
-  const [title, setTitle] = useState(null);
+  const [track, setTrack] = useState<string | undefined>(undefined);
+  const [index, setIndex] = useState<number | undefined>(undefined);
+  const [title, setTitle] = useState<string | undefined>(undefined);
 
-  const songPick = (song, index) => {
+  const songPick = (song: SetList, index: number) => {
     setTrack(song.songSource);
     setIndex(index);
     setTitle(song.songTitle)
   }
 
-  const nextJam = (setList, index) => {
+  const nextJam = (setList: Array<SetList>, index: number) => {
     const songCount = index + 1;
     // possible alt method for resetting last song
     // const songCount = (index + 1) % setList.length;
@@ -33,7 +41,7 @@ const SongComponent = () => {
     }
   }
 
-  const renderSongs = (songs) => {
+  const renderSongs = (songs: Array<SetList>) => {
     return (
       songs && songs.map((data, index) =>
         <div className="allSongs" key={data.songSource} onClick={() => songPick(data, index)} role="presentation">{data.songTitle}</div>,

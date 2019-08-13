@@ -2,7 +2,16 @@ import gql from 'graphql-tag';
 import { yearFail, yearSuccess } from '../Reducer';
 import { client } from '../ApolloClient';
 
-export default function grabYearData(dispatch, year, row) {
+// how to type dispatch?
+export default function grabYearData(dispatch: any, year: number, row: number) {
+  // does this even do anything?
+  interface ShowListItem {
+    date: string;
+    identifier: string;
+    title: string;
+    years: string;
+  }
+
   const query = gql`
     query getShows {
       shows @rest(type: "Shows", path: "/years?year=${year}&row=${row}", method: "GET") {
@@ -18,6 +27,7 @@ export default function grabYearData(dispatch, year, row) {
     }
   `;
 
+// destructure response
   client.query({ query, fetchPolicy: 'no-cache' }).then(response => {
     console.log(response)
     const showList = response.data.shows.response.docs;
@@ -26,7 +36,7 @@ export default function grabYearData(dispatch, year, row) {
       dispatch(yearFail());
     }
       // sort response by date
-      showList.sort((a, b) => {
+      showList.sort((a: ShowListItem, b: ShowListItem) => {
         if (a.date > b.date) {
           return 1;
         }

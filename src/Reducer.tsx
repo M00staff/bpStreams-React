@@ -2,11 +2,25 @@
 import grabYearData from './api/yearApi';
 import grabShowData from './api/showApi';
 
-export function yearRequest(dispatch, yearPicked, row) {
+interface ShowListItem {
+  date: string;
+  identifier: string;
+  title: string;
+  years: string;
+}
+interface SetList {
+  songTitle: string;
+  songFile: string;
+  deeOne: string;
+  directory: string;
+  songSource: string;
+}
+
+export function yearRequest(dispatch: any, yearPicked: number, row: number) {
   dispatch({ type: 'SELECT_YEAR' });
   return grabYearData(dispatch, yearPicked, row);
 }
-export function yearSuccess(showList) {
+export function yearSuccess(showList: Array<ShowListItem>) {
   // jump to playlist
   window.scrollTo(0, 1000);
   return ({
@@ -20,11 +34,11 @@ export function yearFail() {
   });
 }
 
-export function showRequest(dispatch, id, title) {
+export function showRequest(dispatch: any, id: string, title: string) {
   dispatch({ type: 'SELECT_SHOW' });
   return grabShowData(dispatch, id, title);
 }
-export function showSuccess(setList, showPicked) {
+export function showSuccess(setList: Array<SetList>, showPicked: string) {
   // jump to playlist
   window.scrollTo(0, 250);
   return ({
@@ -39,7 +53,7 @@ export function showFail() {
   });
 }
 
-export default function reducer(state, action) {
+export default function reducer(state: any, action: any) {
   switch (action.type) {
     case 'SELECT_YEAR':
       return { ...state };
