@@ -15,8 +15,17 @@ interface SetList {
   directory: string;
   songSource: string;
 }
+interface IState {
+  showList: Array<ShowListItem>;
+  setList: Array<SetList>;
+  showTitle: string;
+}
+
 export type ReducerAction = {
   type: "SELECT_YEAR" | "YEAR_SUCCESS" | "SELECT_SHOW" | "SHOW_SUCCESS",
+  showList: Array<ShowListItem>;
+  setList: Array<SetList>;
+  showPicked: ShowListItem;
 }
 
 export function yearRequest(dispatch: any, yearPicked: number, row: number) {
@@ -56,7 +65,7 @@ export function showFail() {
   });
 }
 
-export default function reducer(state: any, action: any) {
+export default function reducer(state: IState, action: ReducerAction) {
   switch (action.type) {
     case 'SELECT_YEAR':
       return { ...state };

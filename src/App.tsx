@@ -6,7 +6,7 @@ import songLyrics from './songLyrics';
 import reducer from './Reducer';
 import { StateProvider } from './Provider';
 
-const App = (props: any) => (
+const App = () => (
   <div>
     <div className="column column-12">
       <ul>
