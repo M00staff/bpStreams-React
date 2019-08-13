@@ -18,7 +18,7 @@ const App = (props: any) => (
 
     <div className="column column-12">
       {/* Reducer Provider */}
-      <StateProvider initialState={[]} reducer={reducer}>
+      <StateProvider reducer={reducer}>
         <YearContainer />
         <SongContainer />
         <ShowContainer />

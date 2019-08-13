@@ -12,7 +12,7 @@ interface ShowListItem {
 
 const ShowComponent = () => {
   // without abstracting the useContext
-  const [state, dispatch] = useContext(StateContext);
+  const { state, dispatch } = useContext(StateContext);
   // const [state, dispatch] = useStateValue();
 
   return (

@@ -15,6 +15,9 @@ interface SetList {
   directory: string;
   songSource: string;
 }
+export type ReducerAction = {
+  type: "SELECT_YEAR" | "YEAR_SUCCESS" | "SELECT_SHOW" | "SHOW_SUCCESS",
+}
 
 export function yearRequest(dispatch: any, yearPicked: number, row: number) {
   dispatch({ type: 'SELECT_YEAR' });

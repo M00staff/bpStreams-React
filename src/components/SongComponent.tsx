@@ -13,7 +13,7 @@ interface SetList {
 
 const SongComponent = () => {
   // const [state] = useStateValue();
-  const [state] = useContext(StateContext);
+  const { state } = useContext(StateContext);
   const [track, setTrack] = useState<string | undefined>(undefined);
   const [index, setIndex] = useState<number | undefined>(undefined);
   const [title, setTitle] = useState<string | undefined>(undefined);
