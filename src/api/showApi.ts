@@ -1,15 +1,8 @@
 import gql from 'graphql-tag'
 import { showSuccess } from '../Reducer';
 import { client } from '../ApolloClient';
+import { SetList } from '../Interfaces'
 // TODO - add error handling
-
-interface SetList {
-  songTitle: string;
-  songFile: string;
-  deeOne: string;
-  directory: string;
-  songSource: string;
-}
 
 // how to type dispatch?
 export default function grabShowData(dispatch: any, show: string, title: string) {

@@ -2,14 +2,7 @@ import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import ReactAudioPlayer from '../react-audio-player';
 import { StateContext } from '../Provider';
-
-interface SetList {
-  songTitle: string;
-  songFile: string;
-  deeOne: string;
-  directory: string;
-  songSource: string;
-}
+import { SetList } from '../Interfaces';
 
 const SongComponent = () => {
   const { state } = useContext(StateContext);

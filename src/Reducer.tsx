@@ -1,25 +1,7 @@
 // Pure function; returns Object; takes in previous state, action dispatched and returns next state
 import grabYearData from './api/yearApi';
 import grabShowData from './api/showApi';
-
-interface ShowListItem {
-  date: string;
-  identifier: string;
-  title: string;
-  years: string;
-}
-interface SetList {
-  songTitle: string;
-  songFile: string;
-  deeOne: string;
-  directory: string;
-  songSource: string;
-}
-interface IState {
-  showList: Array<ShowListItem>;
-  setList: Array<SetList>;
-  showTitle: string;
-}
+import { ShowListItem, SetList, IState } from './Interfaces';
 
 export type ReducerAction = {
   type: "SELECT_YEAR" | "YEAR_SUCCESS" | "SELECT_SHOW" | "SHOW_SUCCESS",

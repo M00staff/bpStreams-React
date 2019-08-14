@@ -1,28 +1,5 @@
-import React, { useReducer, createContext, Dispatch } from 'react';
-import { ReducerAction } from './Reducer';
-
-type ShowListItem = {
-  date: string;
-  identifier: string;
-  title: string;
-  years: string;
-}
-type SetList = {
-  songTitle: string;
-  songFile: string;
-  deeOne: string;
-  directory: string;
-  songSource: string;
-}
-interface IState {
-  showList: Array<ShowListItem>;
-  setList: Array<SetList>;
-  showTitle: string;
-}
-interface IContextProps {
-  state: IState;
-  dispatch: Dispatch<ReducerAction>;
-}
+import React, { useReducer, createContext } from 'react';
+import { IState, IContextProps } from './Interfaces';
 
 let initialState: IState = {
   showList: [],

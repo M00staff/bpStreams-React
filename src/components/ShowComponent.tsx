@@ -2,13 +2,7 @@ import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import { showRequest } from '../Reducer';
 import { StateContext } from '../Provider';
-
-interface ShowListItem {
-  date: string;
-  identifier: string;
-  title: string;
-  years: string;
-}
+import { ShowListItem } from '../Interfaces';
 
 const ShowComponent = () => {
   const { state, dispatch } = useContext(StateContext);
