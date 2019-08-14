@@ -1,7 +1,7 @@
 // Pure function; returns Object; takes in previous state, action dispatched and returns next state
 import grabYearData from './api/yearApi';
 import grabShowData from './api/showApi';
-import { ShowListItem, SetList, IState } from './Interfaces';
+import { ShowListItem, SetList, IState } from './typescript/Interfaces';
 
 export type ReducerAction = {
   type: "SELECT_YEAR" | "YEAR_SUCCESS" | "SELECT_SHOW" | "SHOW_SUCCESS",

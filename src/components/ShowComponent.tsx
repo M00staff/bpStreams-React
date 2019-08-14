@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import { showRequest } from '../Reducer';
-import { StateContext } from '../Provider';
-import { ShowListItem } from '../Interfaces';
+import { StateContext } from '../hooks/Provider';
+import { ShowListItem } from '../typescript/Interfaces';
 
 const ShowComponent = () => {
   const { state, dispatch } = useContext(StateContext);

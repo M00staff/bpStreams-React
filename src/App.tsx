@@ -4,7 +4,7 @@ import SongContainer from './components/SongComponent';
 import ShowContainer from './components/ShowComponent';
 import songLyrics from './songLyrics';
 import reducer from './Reducer';
-import { StateProvider } from './Provider';
+import { StateProvider } from './hooks/Provider';
 
 const App = () => (
   <div>

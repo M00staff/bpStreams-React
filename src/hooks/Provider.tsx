@@ -1,5 +1,5 @@
 import React, { useReducer, createContext } from 'react';
-import { IState, IContextProps } from './Interfaces';
+import { IState, IContextProps } from '../typescript/Interfaces';
 
 let initialState: IState = {
   showList: [],

@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 import { showSuccess } from '../Reducer';
-import { client } from '../ApolloClient';
-import { SetList } from '../Interfaces'
+import { client } from '../graphQL/ApolloClient';
+import { SetList } from '../typescript/Interfaces'
 // TODO - add error handling
 
 // how to type dispatch?

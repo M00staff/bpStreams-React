@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { yearRequest } from '../Reducer';
-import { StateContext } from '../Provider';
+import { StateContext } from '../hooks/Provider';
 
 const YearComponent = () => {
   const { dispatch } = useContext(StateContext);

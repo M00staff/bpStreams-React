@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { ReducerAction } from './Reducer';
+import { ReducerAction } from '../Reducer';
 
 export interface ShowListItem {
   date: string;

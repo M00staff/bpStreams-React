@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import { yearFail, yearSuccess } from '../Reducer';
-import { client } from '../ApolloClient';
+import { client } from '../graphQL/ApolloClient';
 
 // how to type dispatch?
 export default function grabYearData(dispatch: any, year: number, row: number) {
